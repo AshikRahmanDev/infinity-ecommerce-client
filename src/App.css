@@ -2,15 +2,27 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
 
 /* font */
-.theme-font {
+.logo-font {
   font-family: "PT Serif", serif;
+}
+.banner-title {
+  font-family: "Source Serif Pro", serif;
 }
 
 /* all common color section */
 .brown {
-  background-color: #945c33;
+  background-color: #88522c;
+}
+.pink {
+  background-color: #c96f82;
 }
 
 .transparent-bg {
   background-color: transparent;
+}
+
+.div-vertical {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  min-width: 20px;
 }
