@@ -1,11 +1,12 @@
-import React from "react";
 import "../../App.css";
 import Banner from "./Banner";
+import Trending from "./Trending";
 
 const Home = () => {
   return (
-    <div className="">
+    <div>
       <Banner />
+      <Trending />
     </div>
   );
 };
