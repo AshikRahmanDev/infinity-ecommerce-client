@@ -16,7 +16,7 @@ const trending = [
     id: "63ec82b2c07b3861d19cdcde",
     item: "item2",
     title: "Dip chocolate Artificial Leather belt",
-    picture: "https://i.ibb.co/m8K35Kz/belt.png",
+    picture: "https://i.ibb.co/7QWP5fX/leather-belt.png",
     background: "#d8c9b2",
     color: "#2c2c2b",
     details:
@@ -26,7 +26,7 @@ const trending = [
     id: "63ec82b2a7c072d0b13da6e9",
     item: "item3",
     title: "30% Sale of Sneaker",
-    picture: "https://i.ibb.co/jDCmcdH/shoe.png",
+    picture: "https://i.ibb.co/MfL96kT/shoe.png",
     background: "pink",
     color: "#503a2a",
     details:

@@ -1,0 +1,100 @@
+[
+  {
+    "id": "63ed177e58717043e675bafb",
+    "title": "Premium Fabric soft and comfortable",
+    "picture": {
+      "img1": "https://i.ibb.co/XCDcVWw/pink-shirt-2.png",
+      "img2": "https://i.ibb.co/C291JK7/pink-shirt-1.png",
+      "img3": "https://i.ibb.co/QQrRLQV/pink-shirt-3.png"
+    },
+    "brand": "Infinity",
+    "price": 299,
+    "categories": "Accessories, men's clothing",
+    "tags": "basic,cotton,homes,men,shirt",
+    "details": "Discount 30% for all shoes and sneskers. limited time offer, Don't miss oust!"
+  },
+  {
+    "id": "63ed177e78c0e69a5b241d57",
+    "title": "Men Sultan Grey White Check Blazer",
+    "picture": {
+      "img1": "https://i.ibb.co/fkGnnDH/suit-1.png",
+      "img2": "https://i.ibb.co/27FTpfF/suit-2.png",
+      "img3": "https://i.ibb.co/pKHDqn0/suit-3.png"
+    },
+    "brand": "Infinity",
+    "price": 299,
+    "categories": "Accessories, men's clothing",
+    "tags": "basic,cotton,homes,men,shirt",
+    "details": "Discount 30% for all shoes and sneskers. limited time offer, Don't miss oust!"
+  },
+  {
+    "id": "63ed177e99b946e1ead9265d",
+    "title": "Stylist Blazer Collar Tail Cut Gown",
+    "picture": {
+      "img1": "https://i.ibb.co/NmhzwQJ/purple-2.png",
+      "img2": "https://i.ibb.co/cX2YW4J/purple-1.png",
+      "img3": "https://i.ibb.co/F7xhcG4/purple-3.png"
+    },
+    "brand": "Infinity",
+    "price": 299,
+    "categories": "Accessories, men's clothing",
+    "tags": "basic,cotton,homes,men,shirt",
+    "details": "Discount 30% for all shoes and sneskers. limited time offer, Don't miss oust!"
+  },
+  {
+    "id": "63ed177e19c4e3430c2e1631",
+    "title": "Womens Skirt all colour available",
+    "picture": {
+      "img1": "https://i.ibb.co/WH9Q9JZ/orange-1.png",
+      "img2": "https://i.ibb.co/HXQFYps/orange-2.png",
+      "img3": "https://i.ibb.co/ds94SSw/orange-3.png"
+    },
+    "brand": "Infinity",
+    "price": 299,
+    "categories": "Accessories, men's clothing",
+    "tags": "basic,cotton,homes,men,shirt",
+    "details": "Discount 30% for all shoes and sneskers. limited time offer, Don't miss oust!"
+  },
+  {
+    "id": "63ed177e19c4e3430c2e1631",
+    "title": "Black Cooton Formal Shirt for Men",
+    "picture": {
+      "img1": "https://i.ibb.co/CPBGdDG/metal-black-1.png",
+      "img2": "https://i.ibb.co/2Zxjx3h/metal-black-2.png",
+      "img3": "https://i.ibb.co/K5BG2f6/metal-black-3.png"
+    },
+    "brand": "Infinity",
+    "price": 299,
+    "categories": "Accessories, men's clothing",
+    "tags": "basic,cotton,homes,men,shirt",
+    "details": "Discount 30% for all shoes and sneskers. limited time offer, Don't miss oust!"
+  },
+  {
+    "id": "63ed177e19c4e3430c2e1631",
+    "title": "Styilesh Denim Jacket for men",
+    "picture": {
+      "img1": "https://i.ibb.co/xY9fg9Y/denim-1.png",
+      "img2": "https://i.ibb.co/tqw6zzv/denim-2.png",
+      "img3": "https://i.ibb.co/D9c8ngt/denim-3.png"
+    },
+    "brand": "Infinity",
+    "price": 299,
+    "categories": "Accessories, men's clothing",
+    "tags": "basic,cotton,homes,men,shirt",
+    "details": "Discount 30% for all shoes and sneskers. limited time offer, Don't miss oust!"
+  },
+  {
+    "id": "63ed177e19c4e3430c2e1631",
+    "title": "Grey Cotton Short Sleeve T-Shirt",
+    "picture": {
+      "img1": "https://i.ibb.co/vYKdkQz/gray1.png",
+      "img2": "https://i.ibb.co/xHTJF3V/gray-1.png",
+      "img3": "https://i.ibb.co/Yt3LHrG/gray-3.png"
+    },
+    "brand": "Infinity",
+    "price": 299,
+    "categories": "Accessories, men's clothing",
+    "tags": "basic,cotton,homes,men,shirt",
+    "details": "Discount 30% for all shoes and sneskers. limited time offer, Don't miss oust!"
+  }
+]

@@ -26,3 +26,22 @@
   transform: rotate(180deg);
   min-width: 20px;
 }
+
+/* card animation */
+.img-container {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.product-img {
+  overflow: hidden;
+  height: 300px;
+  width: 100%;
+  transition: all 0.3s;
+}
+
+.img-container:hover .product-img {
+  transform: scale((1.2));
+  height: 350px;
+}

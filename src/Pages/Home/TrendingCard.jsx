@@ -8,7 +8,7 @@ const TrendingCard = ({ product }) => {
     <div
       style={{ backgroundColor: product.background }}
       id={product.item}
-      className="carousel-item w-full md:w-[70%] flex flex-col-reverse md:flex-row items-center md:justify-between p-4"
+      className="carousel-item w-full md:w-[70%] flex flex-col-reverse md:flex-row items-center md:justify-between p-6"
     >
       <div className="z-10">
         <h4 className="text-2xl text-white/40 mb-5 font-bold hidden md:block">

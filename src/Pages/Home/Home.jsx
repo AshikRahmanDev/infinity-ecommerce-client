@@ -1,4 +1,5 @@
 import "../../App.css";
+import Products from "../Editor Choice/Products";
 import Banner from "./Banner";
 import Trending from "./Trending";
 
@@ -7,6 +8,7 @@ const Home = () => {
     <div>
       <Banner />
       <Trending />
+      <Products />
     </div>
   );
 };

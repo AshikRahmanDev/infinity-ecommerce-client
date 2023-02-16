@@ -17,14 +17,14 @@ const Banner = () => {
     >
       {image === 1 ? (
         <img
-          className="absolute object-cover h-[1200px] top-[-150px] md:top-[50px] lg:top-[-180px] md:-left-20 lg:left-[-150px]"
-          src="https://i.ibb.co/mCrdLVS/men.png"
+          className="absolute object-cover h-[1200px] bottom-0 md:top-[50px] lg:top-[-180px] md:-left-20 lg:left-[-150px]"
+          src="https://i.ibb.co/bP9dQR3/men.png"
           alt=""
         />
       ) : (
         <img
-          className="absolute object-cover h-[1200px] md:bottom-0 lg:top-[-50px] md:left-[-150px] lg:left-[-250px]"
-          src="https://i.ibb.co/93ZZMtD/women.png"
+          className="absolute object-cover h-[1100px] bottom-0 lg:top-[-50px] md:left-[-150px] lg:left-[-250px]"
+          src="https://i.ibb.co/gmRKyCR/women.png"
           alt=""
         />
       )}
@@ -67,7 +67,7 @@ const Banner = () => {
                   ? "border-2 bg-amber-600/20"
                   : "border-0 bg-pink-500/30"
               }`}
-              src="https://i.ibb.co/mCrdLVS/men.png"
+              src="https://i.ibb.co/bP9dQR3/men.png"
               alt=""
             />
             <img
@@ -77,7 +77,7 @@ const Banner = () => {
                   ? "border-2 bg-pink-500/30"
                   : "border-0 bg-amber-600/20"
               }`}
-              src="https://i.ibb.co/93ZZMtD/women.png"
+              src="https://i.ibb.co/gmRKyCR/women.png"
               alt=""
             />
           </div>
