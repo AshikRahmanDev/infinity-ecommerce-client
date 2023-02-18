@@ -45,3 +45,10 @@
   transform: scale((1.2));
   height: 350px;
 }
+.visit {
+  transition: all 0.5s;
+}
+
+.img-container:hover .visit {
+  bottom: 0px;
+}
