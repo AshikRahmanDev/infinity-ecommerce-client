@@ -17,13 +17,13 @@ const Banner = () => {
     >
       {image === 1 ? (
         <img
-          className="absolute object-cover h-[1200px] bottom-0 md:top-[50px] lg:top-[-180px] md:-left-20 lg:left-[-150px]"
+          className="absolute object-cover h-[700px] md:h-[1200px] bottom-0 md:top-[50px] lg:top-[-180px] md:-left-20 lg:left-[-150px]"
           src="https://i.ibb.co/bP9dQR3/men.png"
           alt=""
         />
       ) : (
         <img
-          className="absolute object-cover h-[1100px] bottom-0 lg:top-[-50px] md:left-[-150px] lg:left-[-250px]"
+          className="absolute object-cover h-[700px] md:h-[1100px] bottom-0 lg:top-[-50px] md:left-[-150px] lg:left-[-250px]"
           src="https://i.ibb.co/gmRKyCR/women.png"
           alt=""
         />
