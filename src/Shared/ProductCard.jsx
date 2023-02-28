@@ -17,7 +17,7 @@ const ProductCard = ({ product }) => {
     <div>
       <div className="w-[290px] mx-auto">
         <div className="img-container h-[300px] w-[290px]">
-          <Link to={`/detail/product/details/${product?._id}`}>
+          <Link to={`/main/product/details/${product?._id}`}>
             <img
               className="product-img object-cover"
               style={{ backgroundColor: "#f1f0ee" }}
@@ -53,7 +53,7 @@ const ProductCard = ({ product }) => {
           </label>
           <p className="logo-font text-red-500 mb-2">$ {price}.00</p>
           <Link
-            to={`/detail/product/details/${product?._id}`}
+            to={`/main/product/details/${product?._id}`}
             className="uppercase logo-font block w-[90%] mx-auto text-center text-gray-400 border border-gray-400 py-2"
           >
             view details

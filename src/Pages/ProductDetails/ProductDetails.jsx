@@ -9,8 +9,10 @@ import { CiFacebook, CiTwitter, CiInstagram } from "react-icons/ci";
 const ProductDetails = () => {
   const [count, setCount] = useState(1);
   const product = useLoaderData();
-  const { brand, title, categories, details, price, picture, tags } = product;
-  const { img1 } = picture;
+  const { brand, title, categories, price, picture, tags } = product;
+  const { img1, img2, img3 } = picture;
+  const [display, setDisplay] = useState(img1);
+
   console.log(product);
   const handleCountPlus = () => {
     setCount(count + 1);
@@ -22,15 +24,39 @@ const ProductDetails = () => {
     setCount(count - 1);
   };
   return (
-    <div className="md:flex mt-7 w-[90%] mx-auto">
+    <div className="md:flex mt-7 w-[90%] md:w-[80%] mx-auto">
       {/* images */}
-      <div>
+      <div className="">
         <img
-          className="h-[500px] w-[600px] object-cover"
+          className="w-[550px] h-[550px] object-cover"
           style={{ backgroundColor: "#f1f0ee" }}
-          src={img1}
+          src={display}
           alt=""
         />
+        {/* image change btns */}
+        <div className="flex mt-5 gap-6">
+          <img
+            onClick={() => setDisplay(img1)}
+            style={{ backgroundColor: "#f1f0ee" }}
+            className="w-[80px] h-[100px] object-cover"
+            src={img1}
+            alt=""
+          />
+          <img
+            onClick={() => setDisplay(img2)}
+            style={{ backgroundColor: "#f1f0ee" }}
+            className="w-[80px] h-[100px] object-cover"
+            src={img2}
+            alt=""
+          />
+          <img
+            onClick={() => setDisplay(img3)}
+            style={{ backgroundColor: "#f1f0ee" }}
+            className="w-[80px] h-[100px] object-cover"
+            src={img3}
+            alt=""
+          />
+        </div>
       </div>
       {/* details */}
       <div className="md:px-16 md:w-[50%]">

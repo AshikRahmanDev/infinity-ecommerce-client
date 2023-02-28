@@ -1,6 +1,8 @@
 import Loading from "../Shared/Loading";
 import ProductDetails from "../Pages/ProductDetails/ProductDetails";
-import OtherPageLayout from "../Layout/OtherPageLayout";
+import Main from "../Layout/Main";
+import Register from "../Pages/Account/Register";
+import Login from "../Pages/Account/Login";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Root } = require("../Layout/Root");
@@ -13,15 +15,17 @@ const router = createBrowserRouter([
     children: [{ path: "/", element: <Home /> }],
   },
   {
-    path: "/detail",
-    element: <OtherPageLayout />,
+    path: "/main",
+    element: <Main />,
     children: [
       {
-        path: "/detail/product/details/:id",
+        path: "/main/product/details/:id",
         loader: async ({ params }) =>
           fetch(`http://localhost:5000/product/${params.id}`),
         element: <ProductDetails />,
       },
+      { path: "/main/register", element: <Register /> },
+      { path: "/main/login", element: <Login /> },
     ],
   },
   {
