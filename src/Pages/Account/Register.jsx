@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const Register = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
+  const { createUser, updateUser } = useContext(AuthContext);
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const { email, firstName, lastName, password } = data;
+    const name = firstName + " " + lastName;
+    createUser(email, password)
+      .then((result) => {
+        if (result.user) {
+          updateUser(name);
+          reset();
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
-    <div className="mt-9">
+    <div className="mt-12">
       <div className="w-[90%] md:w-[30%] mx-auto">
         <h1 className="text-xl uppercase banner-title">new customers</h1>
         <p className="my-3 text-[13px] text-gray-400">
@@ -67,7 +81,10 @@ const Register = () => {
           </div>
         </form>
         <p className="mt-3 text-[13px]">
-          Already have an account? <Link className="text-primary">login</Link>
+          Already have an account?{" "}
+          <Link to={"/main/login"} className="text-primary">
+            login
+          </Link>
         </p>
       </div>
     </div>
