@@ -9,7 +9,7 @@ function App() {
     setbuffer(true);
     setTimeout(() => {
       setbuffer(false);
-    }, 3000);
+    }, 1000);
   }, []);
 
   if (buffer) {

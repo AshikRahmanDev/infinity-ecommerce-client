@@ -1,19 +1,44 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AiFillStar, AiOutlineHeart } from "react-icons/ai";
 import { BiStore } from "react-icons/bi";
 import { MdCompareArrows } from "react-icons/md";
 import { FaTshirt } from "react-icons/fa";
 import { CiFacebook, CiTwitter, CiInstagram } from "react-icons/ci";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const ProductDetails = () => {
   const [count, setCount] = useState(1);
+  const { user } = useContext(AuthContext);
   const product = useLoaderData();
-  const { brand, title, categories, price, picture, tags } = product;
+  const { brand, title, categories, price, picture, tags, _id } = product;
   const { img1, img2, img3 } = picture;
   const [display, setDisplay] = useState(img1);
 
-  console.log(product);
+  // handle add to cart
+  const handleAddToCart = () => {
+    const cartProduct = {
+      brand,
+      title,
+      price,
+      img1,
+      amount: count,
+      id: _id,
+    };
+    if (user?.email) {
+      fetch(`http://localhost:5000/addCart/${user?.email}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(cartProduct),
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+    }
+  };
+
+  // handle count
   const handleCountPlus = () => {
     setCount(count + 1);
   };
@@ -23,6 +48,7 @@ const ProductDetails = () => {
     }
     setCount(count - 1);
   };
+
   return (
     <div className="md:flex mt-7 w-[90%] md:w-[80%] mx-auto">
       {/* images */}
@@ -107,7 +133,11 @@ const ProductDetails = () => {
                 +
               </button>
             </div>
-            <button className="uppercase text-[15px] font-mono w-full border border-gray-400 hover:border-black hover:bg-black hover:text-white py-1">
+            {/* add to cart */}
+            <button
+              onClick={() => handleAddToCart()}
+              className="uppercase text-[15px] font-mono w-full border border-gray-400 hover:border-black hover:bg-black hover:text-white py-1"
+            >
               add to cart
             </button>
           </div>

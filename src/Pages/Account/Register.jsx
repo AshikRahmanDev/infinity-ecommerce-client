@@ -1,19 +1,30 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Register = () => {
   const { register, handleSubmit, reset } = useForm();
   const { createUser, updateUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     const { email, firstName, lastName, password } = data;
     const name = firstName + " " + lastName;
+    const user = { name, email };
     createUser(email, password)
       .then((result) => {
         if (result.user) {
           updateUser(name);
+          fetch(`http://localhost:5000/register`, {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(user),
+          })
+            .then((res) => res.json)
+            .then((data) => navigate("/"));
           reset();
         }
       })
