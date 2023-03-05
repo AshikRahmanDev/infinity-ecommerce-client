@@ -1,14 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useQuery } from "react-query";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const ShoppingCart = () => {
-  const [cart, setCart] = useState([]);
   const { user } = useContext(AuthContext);
-  useEffect(() => {
-    fetch(`http://localhost:5000/cart/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => setCart(data));
-  }, [user]);
+
+  // fetch with query
+  const getCarts = async () => {
+    const res = await fetch(`http://localhost:5000/cart/${user?.email}`);
+    return res.json();
+  };
+  const { data: cart, error, isLoading, refetch } = useQuery("carts", getCarts);
   console.log(cart);
   return (
     <div className="my-7">
