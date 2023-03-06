@@ -4,6 +4,8 @@ import Main from "../Layout/Main";
 import Register from "../Pages/Account/Register";
 import Login from "../Pages/Account/Login";
 import ShoppingCart from "../Pages/Shopping Cart/ShoppingCart";
+import PrivetRoute from "./PrivetRoute";
+import AllProducts from "../Pages/AllProducts/AllProducts";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Root } = require("../Layout/Root");
@@ -27,7 +29,15 @@ const router = createBrowserRouter([
       },
       { path: "/main/register", element: <Register /> },
       { path: "/main/login", element: <Login /> },
-      { path: "/main/shoppingCart", element: <ShoppingCart /> },
+      { path: "/main/products", element: <AllProducts /> },
+      {
+        path: "/main/shoppingCart",
+        element: (
+          <PrivetRoute>
+            <ShoppingCart />
+          </PrivetRoute>
+        ),
+      },
     ],
   },
   {

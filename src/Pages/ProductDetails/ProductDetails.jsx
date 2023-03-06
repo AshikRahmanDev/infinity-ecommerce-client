@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { AiFillStar, AiOutlineHeart } from "react-icons/ai";
 import { BiStore } from "react-icons/bi";
 import { MdCompareArrows } from "react-icons/md";
@@ -14,6 +14,7 @@ const ProductDetails = () => {
   const { brand, title, categories, price, picture, tags, _id } = product;
   const { img1, img2, img3 } = picture;
   const [display, setDisplay] = useState(img1);
+  const navigate = useNavigate();
 
   // handle add to cart
   const handleAddToCart = () => {
@@ -35,6 +36,8 @@ const ProductDetails = () => {
       })
         .then((res) => res.json())
         .then((data) => console.log(data));
+    } else {
+      navigate("/main/login");
     }
   };
 

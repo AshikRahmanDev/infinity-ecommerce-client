@@ -48,7 +48,7 @@ const Trending = () => {
           <TrendingCard key={product.id} product={product} />
         ))}
       </div>
-      <div className="flex absolute bottom-0 left-4 py-2 gap-2">
+      <div className="hidden lg:flex absolute bottom-0 left-4 py-2 gap-2">
         <a
           onClick={() => handleNumber(1)}
           href="#item1"

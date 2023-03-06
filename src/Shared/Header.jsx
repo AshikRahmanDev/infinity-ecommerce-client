@@ -10,9 +10,6 @@ const Header = () => {
   const { user, logout } = useContext(AuthContext);
   const links = (
     <>
-      {/* <li className="mx-3">
-        <BiSearch className="text-2xl" />
-      </li> */}
       <li className="mx-3">
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="m-1">
@@ -20,13 +17,16 @@ const Header = () => {
           </label>
           <ul
             tabIndex={0}
-            className="dropdown-content menu p-2 shadow bg-white rounded-md w-52"
+            className="dropdown-content menu p-2 shadow bg-white rounded-sm w-52 logo-font"
           >
             {user?.uid ? (
-              <li>
-                <p onClick={() => logout()} className="text-black">
-                  Logout
-                </p>
+              <li onClick={() => logout()} className="text-center">
+                <div className="block text-black">
+                  <h4 className="text-black logo-font text-center text-[18px]">
+                    {user?.displayName}
+                  </h4>
+                  <p className="text-black logo-font text-center">Logout</p>
+                </div>
               </li>
             ) : (
               <>
@@ -35,6 +35,7 @@ const Header = () => {
                     Login
                   </Link>
                 </li>
+
                 <li>
                   <Link to={"/main/register"} className="text-black mt-2">
                     Register
@@ -68,11 +69,11 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="dropdown-content menu bg-white p-2 shadow rounded-sm w-52 text-black text-center"
+              className="dropdown-content menu bg-white p-2 shadow rounded-sm w-52 text-black text-center logo-font"
             >
-              <Link className="py-2">
+              <li className="py-2">
                 <Link to={"/main/shoppingCart"}>Cart</Link>
-              </Link>
+              </li>
               {user?.uid ? (
                 <li>
                   <p onClick={() => logout()} className="text-black">

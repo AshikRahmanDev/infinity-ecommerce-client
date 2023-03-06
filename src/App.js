@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Toaster } from "react-hot-toast";
 import { RouterProvider } from "react-router-dom";
 import router from "./Router/Router";
 import Loading from "./Shared/Loading";
@@ -18,6 +19,7 @@ function App() {
   return (
     <div className="">
       <RouterProvider router={router} />
+      <Toaster position="bottom-right" reverseOrder={false} />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import Footer from "../Shared/Footer";
 import VisibleHeader from "../Shared/VisibleHeader";
 
 const OtherPageLayout = () => {
@@ -7,6 +8,7 @@ const OtherPageLayout = () => {
     <div>
       <VisibleHeader />
       <Outlet />
+      <Footer />
     </div>
   );
 };

@@ -16,13 +16,16 @@ const VisibleHeader = () => {
           </label>
           <ul
             tabIndex={0}
-            className="dropdown-content menu p-2 shadow bg-white rounded-md w-52"
+            className="dropdown-content menu p-2 shadow bg-white rounded-md w-52 logo-font"
           >
             {user?.uid ? (
-              <li>
-                <p onClick={() => logout()} className="text-black">
-                  Logout
-                </p>
+              <li onClick={() => logout()} className="text-center">
+                <div className="block text-black">
+                  <h4 className="text-black logo-font text-center text-[18px]">
+                    {user?.displayName}
+                  </h4>
+                  <p className="text-black logo-font text-center">Logout</p>
+                </div>
               </li>
             ) : (
               <>
@@ -31,6 +34,7 @@ const VisibleHeader = () => {
                     Login
                   </Link>
                 </li>
+
                 <li>
                   <Link to={"/main/register"} className="text-black mt-2">
                     Register
@@ -49,7 +53,7 @@ const VisibleHeader = () => {
   );
 
   return (
-    <div className="w-[90%] mx-auto z-10 border-b-2 border-primary/50">
+    <div className="w-[95%] mx-auto z-10 border-b-2 border-primary/50">
       <nav className="flex justify-between items-center h-20 w-[92%] mx-auto">
         <div>
           <Link to={"/"} className="logo-font text-4xl text-primary">
@@ -65,7 +69,7 @@ const VisibleHeader = () => {
             </label>
             <ul
               tabIndex={0}
-              className="dropdown-content menu bg-white p-2 shadow rounded-sm w-52 text-black text-center"
+              className="dropdown-content menu bg-white p-2 shadow rounded-sm w-52 text-black text-center logo-font"
             >
               <li className="py-2">
                 <Link to={"/main/shoppingCart"}>Cart</Link>

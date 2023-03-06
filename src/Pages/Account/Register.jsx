@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
@@ -23,8 +24,24 @@ const Register = () => {
             },
             body: JSON.stringify(user),
           })
-            .then((res) => res.json)
-            .then((data) => navigate("/"));
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              if (data?.acknowledged) {
+                toast.success("Account Succesfully created!", {
+                  style: {
+                    border: "1px solid #928656",
+                    padding: "10px 16px",
+                    color: "#928656",
+                  },
+                  iconTheme: {
+                    primary: "#928656",
+                    secondary: "#FFFAEE",
+                  },
+                });
+                navigate("/");
+              }
+            });
           reset();
         }
       })
