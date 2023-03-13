@@ -6,12 +6,13 @@ import { MdCompareArrows } from "react-icons/md";
 import { FaTshirt } from "react-icons/fa";
 import { CiFacebook, CiTwitter, CiInstagram } from "react-icons/ci";
 import { AuthContext } from "../../Context/AuthProvider";
+import { toast } from "react-hot-toast";
 
 const ProductDetails = () => {
   const [count, setCount] = useState(1);
   const { user } = useContext(AuthContext);
   const product = useLoaderData();
-  const { brand, title, categories, price, picture, tags, _id } = product;
+  const { brand, title, categories, price, picture, tags, _id: id } = product;
   const { img1, img2, img3 } = picture;
   const [display, setDisplay] = useState(img1);
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ const ProductDetails = () => {
       price,
       img1,
       amount: count,
-      id: _id,
+      id,
     };
     if (user?.email) {
       fetch(`http://localhost:5000/addCart/${user?.email}`, {
@@ -35,7 +36,13 @@ const ProductDetails = () => {
         body: JSON.stringify(cartProduct),
       })
         .then((res) => res.json())
-        .then((data) => console.log(data));
+        .then((data) => {
+          if (data.acknowledged) {
+            toast.success("successfuly added");
+          } else {
+            toast.error("Product already added in cart!");
+          }
+        });
     } else {
       navigate("/main/login");
     }
@@ -144,12 +151,13 @@ const ProductDetails = () => {
               add to cart
             </button>
           </div>
-          <button
+          <Link
+            to={`/main/checkout/${id + " " + user?.email}`}
             style={{ backgroundColor: "#928656" }}
             className="btn btn-block border-0 text-white bg-primary rounded-none my-3"
           >
             buy now
-          </button>
+          </Link>
           {/* ..... */}
           <div className="flex items-center mt-3">
             <Link className="flex items-center uppercase text-[13px]">

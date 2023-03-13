@@ -6,6 +6,7 @@ import Login from "../Pages/Account/Login";
 import ShoppingCart from "../Pages/Shopping Cart/ShoppingCart";
 import PrivetRoute from "./PrivetRoute";
 import AllProducts from "../Pages/AllProducts/AllProducts";
+import CheckOut from "../Pages/CheckOut/CheckOut";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Root } = require("../Layout/Root");
@@ -30,6 +31,19 @@ const router = createBrowserRouter([
       { path: "/main/register", element: <Register /> },
       { path: "/main/login", element: <Login /> },
       { path: "/main/products", element: <AllProducts /> },
+      {
+        path: "/main/checkout/:id",
+        loader: ({ params }) => {
+          const itemKey = params.id.split(" ");
+          const id = itemKey[0];
+          const email = itemKey[1];
+
+          return fetch(
+            `http://localhost:5000/cart/product/${id}?email=${email}`
+          );
+        },
+        element: <CheckOut />,
+      },
       {
         path: "/main/shoppingCart",
         element: (

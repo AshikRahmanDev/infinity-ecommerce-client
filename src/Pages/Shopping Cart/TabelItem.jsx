@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const TabelItem = ({ item }) => {
-  const { img1, title, price, amount } = item;
+  const { img1, title, price, amount, id } = item;
+  const { user } = useContext(AuthContext);
   const handleDelete = () => {
     toast.success("Look at my styles.", {
       style: {
@@ -31,7 +33,10 @@ const TabelItem = ({ item }) => {
             </div>
             <div>
               <div className="text-[13px] logo-font">{title}</div>
-              <Link className="py-1 px-2 bg-primary rounded-sm text-white font-normal mt-2 uppercase logo-font text-[10px]">
+              <Link
+                to={`/main/checkout/${id + " " + user?.email}`}
+                className="py-1 px-2 bg-primary rounded-sm text-white font-normal mt-2 uppercase logo-font text-[10px]"
+              >
                 checkout
               </Link>
             </div>

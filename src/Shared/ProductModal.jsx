@@ -1,10 +1,47 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { toast } from "react-hot-toast";
 import { AiOutlineHeart } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context/AuthProvider";
 
 const ProductModal = ({ modalData, setModalData }) => {
   const [count, setCount] = useState(1);
-  const { brand, title, categories, details, price, picture, tags } = modalData;
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { brand, title, categories, details, price, picture, tags, _id } =
+    modalData;
   const { img1, img2, img3 } = picture;
+
+  // handle add to cart
+  const handleAddToCart = () => {
+    const cartProduct = {
+      brand,
+      title,
+      price,
+      img1,
+      amount: count,
+      id: _id,
+    };
+    if (user?.email) {
+      fetch(`http://localhost:5000/addCart/${user?.email}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(cartProduct),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.acknowledged) {
+            toast.success("successfuly added");
+          } else {
+            toast.error("Product already added in cart!");
+          }
+        });
+    } else {
+      navigate("/main/login");
+    }
+  };
 
   const handleCountPlus = () => {
     setCount(count + 1);
@@ -137,7 +174,10 @@ const ProductModal = ({ modalData, setModalData }) => {
                     +
                   </button>
                 </div>
-                <button className="uppercase font-mono mx-5 bg-orange-600 w-[250px] text-white font-semibold py-1">
+                <button
+                  onClick={() => handleAddToCart()}
+                  className="uppercase font-mono mx-5 bg-orange-600 w-[250px] text-white font-semibold py-1"
+                >
                   add to cart
                 </button>
               </div>
