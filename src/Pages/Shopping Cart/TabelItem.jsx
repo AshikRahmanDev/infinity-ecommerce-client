@@ -4,21 +4,22 @@ import { MdOutlineDeleteOutline } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
-const TabelItem = ({ item }) => {
+const TabelItem = ({ item, refetch }) => {
   const { img1, title, price, amount, id } = item;
   const { user } = useContext(AuthContext);
-  const handleDelete = () => {
-    toast.success("Look at my styles.", {
-      style: {
-        border: "1px solid #928656",
-        padding: "10px 16px",
-        color: "#928656",
-      },
-      iconTheme: {
-        primary: "#928656",
-        secondary: "#FFFAEE",
-      },
-    });
+  const handleDelete = (id) => {
+    console.log(id);
+    fetch(`http://localhost:5000/deleteItemFromCart/${user?.email}/?id=${id}`, {
+      method: "PUT",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount === 1) {
+          refetch();
+          toast.success("Item deleted!");
+        }
+      });
   };
   return (
     <>
@@ -49,7 +50,10 @@ const TabelItem = ({ item }) => {
         {/* subtotal  */}
         <td className="logo-font text-[12px]">$ {price * amount}</td>
         {/* delete  */}
-        <td onClick={() => handleDelete()} className="text-[23px] text-primary">
+        <td
+          onClick={() => handleDelete(id)}
+          className="text-[23px] text-primary"
+        >
           <MdOutlineDeleteOutline />
         </td>
       </tr>

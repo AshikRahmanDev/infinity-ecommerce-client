@@ -12,6 +12,7 @@ const ShoppingCart = () => {
     return res.json();
   };
   const { data: cart, isLoading, refetch } = useQuery("carts", getCarts);
+  console.log(cart);
   return (
     <div className="my-7">
       <h1 className="text-center text-4xl logo-font">Shopping Cart</h1>
