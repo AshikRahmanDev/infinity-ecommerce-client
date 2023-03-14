@@ -6,7 +6,8 @@ import Login from "../Pages/Account/Login";
 import ShoppingCart from "../Pages/Shopping Cart/ShoppingCart";
 import PrivetRoute from "./PrivetRoute";
 import AllProducts from "../Pages/AllProducts/AllProducts";
-import CheckOut from "../Pages/CheckOut/CheckOut";
+import CheckoutFromCart from "../Pages/Checkout/CheckoutFromCart";
+import Checkout from "../Pages/Checkout/Checkout";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Root } = require("../Layout/Root");
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
       { path: "/main/login", element: <Login /> },
       { path: "/main/products", element: <AllProducts /> },
       {
-        path: "/main/checkout/:id",
+        path: "/main/checkoutFromCart/:id",
         loader: ({ params }) => {
           const itemKey = params.id.split(" ");
           const id = itemKey[0];
@@ -42,7 +43,15 @@ const router = createBrowserRouter([
             `http://localhost:5000/cart/product/${id}?email=${email}`
           );
         },
-        element: <CheckOut />,
+        element: <CheckoutFromCart />,
+      },
+      {
+        path: "/main/checkout/:id",
+        element: (
+          <PrivetRoute>
+            <Checkout />
+          </PrivetRoute>
+        ),
       },
       {
         path: "/main/shoppingCart",

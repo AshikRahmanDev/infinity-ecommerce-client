@@ -35,7 +35,7 @@ const TabelItem = ({ item, refetch }) => {
             <div>
               <div className="text-[13px] logo-font">{title}</div>
               <Link
-                to={`/main/checkout/${id + " " + user?.email}`}
+                to={`/main/checkoutFromCart/${id + " " + user?.email}`}
                 className="py-1 px-2 bg-primary rounded-sm text-white font-normal mt-2 uppercase logo-font text-[10px]"
               >
                 checkout

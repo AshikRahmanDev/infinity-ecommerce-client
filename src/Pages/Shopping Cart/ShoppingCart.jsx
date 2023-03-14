@@ -17,7 +17,7 @@ const ShoppingCart = () => {
     <div className="my-7">
       <h1 className="text-center text-4xl logo-font">Shopping Cart</h1>
       {/* if cart emty */}
-      {!cart && (
+      {!cart | (cart?.length === 0) && (
         <>
           <h2 className="logo-font text-center mt-10 text-[20px]">
             No result found

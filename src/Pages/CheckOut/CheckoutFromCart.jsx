@@ -1,17 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useContext } from "react";
+import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
-const Checkout = () => {
-  const [product, setProduct] = useState([]);
-  const { id } = useParams();
+const CheckOut = () => {
   const { user } = useContext(AuthContext);
-  useEffect(() => {
-    fetch(`http://localhost:5000/product/${id}`)
-      .then((res) => res.json())
-      .then((data) => setProduct(data));
-  }, [id]);
-  const { title, price, brand } = product;
+  const product = useLoaderData()[0];
+  console.log(product);
+  const { title, img1, brand, price, amount } = product;
   return (
     <div className="w-[90%] lg:w-[75%] mx-auto mt-6 p-2">
       <h1 className="text-3xl text-center logo-font">Checkout</h1>
@@ -67,11 +62,11 @@ const Checkout = () => {
               required
             />
           </div>
-          {/* email */}
+          {/* note */}
           <div className="my-5">
             <input
               className="border-b py-2 pb-10 px-3 w-full text-[13px] mr-5"
-              type="email"
+              type="text"
               placeholder="Order Note (optional)"
               required
             />
@@ -86,14 +81,16 @@ const Checkout = () => {
               <div className="avatar mr-2">
                 <div className="mask w-12 h-12">
                   <img
-                    src={product?.picture?.img1}
+                    src={img1}
                     className="bg-gray-400/30"
                     alt="Avatar Tailwind CSS Component"
                   />
                 </div>
               </div>
               <div>
-                <div className="text-[13px] logo-font">{title}</div>
+                <div className="text-[13px] logo-font">
+                  {amount}x {title}
+                </div>
                 <p className="text-[12px] logo-font">brand: {brand}</p>
               </div>
             </div>
@@ -105,7 +102,7 @@ const Checkout = () => {
             {/* subtotal */}
             <div className="flex logo-font justify-between mt-4 text-[13px]">
               <p className="text-gray-500">Subtotal</p>
-              <p>$ {price}.00</p>
+              <p>$ {price * amount}.00</p>
             </div>
             {/* shiping fee */}
             <div className="flex logo-font justify-between my-2 pb-5 text-[13px] border-b border-gray-400/40">
@@ -115,7 +112,7 @@ const Checkout = () => {
             {/* total */}
             <div className="flex logo-font justify-between mt-4 text-xl pb-5 border-b border-gray-400/40">
               <h4>TOTAL</h4>
-              <p>$ {price + 20}.00</p>
+              <p>$ {price * amount + 20}.00</p>
             </div>
           </div>
           {/* payment system */}
@@ -164,4 +161,4 @@ const Checkout = () => {
   );
 };
 
-export default Checkout;
+export default CheckOut;
