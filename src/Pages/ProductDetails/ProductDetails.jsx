@@ -210,7 +210,7 @@ const ProductDetails = () => {
         </div>
       </div>
       {/* reviews */}
-      <Reviews />
+      <Reviews id={id} />
     </div>
   );
 };
