@@ -97,7 +97,7 @@ const Reviews = ({ id }) => {
             </div>
             {/* details */}
             <div className="my-5">
-              <input
+              <textarea
                 className="border-b py-2 pb-16 px-1 w-full text-[13px] mr-5"
                 {...register("review")}
                 type="text"
